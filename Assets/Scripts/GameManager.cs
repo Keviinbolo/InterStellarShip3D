@@ -56,6 +56,14 @@ public class GameManager : MonoBehaviour
         textoPuntuacion.text = $"Puntos: {puntuacion}{multiplicadorTxt}";
     }
 
+    public void AnadirPuntos(int cantidad)
+    {
+        if (!juegoActivo) return;
+        puntuacionFloat += cantidad;
+        puntuacion = Mathf.FloorToInt(puntuacionFloat);
+        ActualizarUI();
+    }
+
     public void GameOver()
     {
         if (!juegoActivo) return;

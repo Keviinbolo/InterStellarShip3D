@@ -5,10 +5,14 @@ public class Enemy : MonoBehaviour
     [Header("Movimiento")]
     public float velocidad = 8f;
 
+    [Header("Puntuacion")]
+    public int puntosPorKill = 500;
+
     [HideInInspector] public Transform player;
     [HideInInspector] public Camera camara;
 
     private Vector3 direccion;
+    private bool _destruido = false;
 
     void Start()
     {
@@ -31,9 +35,24 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
     }
 
+    // Llamado por la bala al impactar
+    public void Morir()
+    {
+        if (_destruido) return;
+        _destruido = true;
+
+        GameObject explosion = new GameObject("Explosion");
+        explosion.transform.position = transform.position;
+        explosion.AddComponent<Explosion>();
+
+        if (GameManager.instance != null)
+            GameManager.instance.AnadirPuntos(puntosPorKill);
+
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger con: " + other.gameObject.name);
         ManejarColision(other.gameObject);
     }
 
@@ -44,8 +63,13 @@ public class Enemy : MonoBehaviour
 
     void ManejarColision(GameObject objetivo)
     {
-        Debug.Log("Colision con: " + objetivo.name);
+        if (_destruido) return;
         if (!objetivo.CompareTag("Player")) return;
+        _destruido = true;
+
+        GameObject explosion = new GameObject("Explosion");
+        explosion.transform.position = transform.position;
+        explosion.AddComponent<Explosion>();
 
         Destroy(objetivo);
         Destroy(gameObject);

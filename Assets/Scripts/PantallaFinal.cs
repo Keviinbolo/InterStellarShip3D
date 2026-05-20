@@ -12,7 +12,12 @@ public class PantallaFinal : MonoBehaviour
         int puntuacion = PlayerPrefs.GetInt("Puntuacion", 0);
 
         if (textoPuntuacion != null)
-            textoPuntuacion.text = $"Puntuacion Final\n\n{puntuacion} puntos";
+        {
+            string mensaje = "PUNTUACION FINAL\n\n";
+            mensaje += $"<color=#FFD700><size=60>{puntuacion}</size></color>\n";
+            mensaje += "puntos";
+            textoPuntuacion.text = mensaje;
+        }
     }
 
     public void VolverAlMenu()
