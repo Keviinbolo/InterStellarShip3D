@@ -82,7 +82,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 3.23, y: 5.1571465, z: 11.886085}
   m_Center: {x: 0, y: 1.0569015, z: 1.6029677}
@@ -135,7 +135,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 11.3, y: 1.3875304, z: 5.528293}
   m_Center: {x: 0, y: -0.01761496, z: -1.895994}
@@ -151,7 +151,6 @@ GameObject:
   - component: {fileID: 4696371473205880273}
   - component: {fileID: 7406217626883854619}
   - component: {fileID: -4517155703831264596}
-  - component: {fileID: 7512069626677593553}
   - component: {fileID: 579477389862411347}
   m_Layer: 0
   m_Name: Fighter02
@@ -249,27 +248,6 @@ MonoBehaviour:
   velocidad: 8
   player: {fileID: 0}
   camara: {fileID: 0}
---- !u!65 &7512069626677593553
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9063731474767392974}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 7, y: 6, z: 9}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &579477389862411347
 Rigidbody:
   m_ObjectHideFlags: 0
